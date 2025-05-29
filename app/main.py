@@ -1,9 +1,19 @@
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+
 from app.services.predictor import predict
 from app.utils.image import preprocess_image
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def root():
