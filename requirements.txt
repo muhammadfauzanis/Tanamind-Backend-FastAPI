@@ -1,6 +1,8 @@
 fastapi
-uvicorn
-tensorflow
+uvicorn[standard]
+python-multipart
 pillow
 numpy
-uvicorn[standard]
+tensorflow
+python-dotenv
+cloudinary
