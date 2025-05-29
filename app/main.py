@@ -4,6 +4,10 @@ from fastapi.responses import JSONResponse
 
 from app.services.predictor import predict
 from app.utils.image import preprocess_image
+import os
+
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"  # Suppress TensorFlow warnings
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
 app = FastAPI()
 
