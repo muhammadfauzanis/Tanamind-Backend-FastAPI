@@ -20,9 +20,9 @@ MODEL_CONFIG = {
         ]
     },
     "selada": {
-        "file": "tanamind_selada.h5",
+        "file": "lettuce_model.h5",
         "labels": [
-            "busuk_daun", "bercak_daun", "layu_bakteri", "sehat"
+            "Downy_mildew_on_lettuce", "Healthy", "Septoria_blight_on_lettuce", "Viral"
         ]
     }
 }
@@ -44,8 +44,14 @@ def get_model(tanaman: str):
 
 def predict(tanaman: str, image_array: np.ndarray):
     model, labels = get_model(tanaman)
-    image_array = np.expand_dims(image_array, axis=0).astype(np.float32) 
+    image_array = np.expand_dims(image_array, axis=0).astype(np.float32)
     prediction = model.predict(image_array)
     pred_class = np.argmax(prediction)
     confidence = float(np.max(prediction))
+
+    # Threshold check
+    if confidence < 0.9:
+        return "Unknown", confidence
+
     return labels[pred_class], confidence
+
