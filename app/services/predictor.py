@@ -14,7 +14,7 @@ MODEL_CONFIG = {
         ]
     },
     "cabai": {
-        "file": "model_chilli.h5",
+        "file": "model_chili.h5",
         "labels": [
             "Whitefly", "Healthy2", "Anthracnose"
         ]
