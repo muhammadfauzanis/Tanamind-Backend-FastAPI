@@ -14,9 +14,9 @@ MODEL_CONFIG = {
         ]
     },
     "cabai": {
-        "file": "tanamind_cabai.h5",
+        "file": "model_chilli.h5",
         "labels": [
-            "antraknosa", "busuk_dasar_buah", "keriting_daun", "sehat"
+            "Whitefly", "Healthy2", "Anthracnose"
         ]
     },
     "selada": {
